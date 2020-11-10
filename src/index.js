@@ -11,7 +11,11 @@ app.use(helmet())
 app.use(cors())
 
 app.get('/', (req, res) => {
-  res.json({message: `you're home!`})
+  res.json({message: `Welcome Sailor! You're home!`})
+})
+
+app.get('/health', (req, res) => {
+  res.json({message: `Our ship is healthy captain!`})
 })
 
 // specific error handler - not found

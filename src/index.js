@@ -1,32 +1,32 @@
-const express = require('express')
-const morgan = require('morgan')
+const express = require("express");
+const morgan = require("morgan");
 // const helmet = require('helmet')
-const cors = require('cors')
+const cors = require("cors");
 
-const middlewares = require('./middlewares')
+const middlewares = require("./middlewares");
 
-const app = express()
-app.use(morgan('common'))
+const app = express();
+app.use(morgan("common"));
 // app.use(helmet())
-app.use(cors())
+app.use(cors());
 
-app.get('/', (req, res) => {
-  res.json({message: `Welcome Sailor! You're home!`})
-})
+app.get("/", (req, res) => {
+	res.json({ message: `Welcome Sailor! You're home!` });
+});
 
-app.get('/health', (req, res) => {
-  res.json({message: `Our ship is healthy captain!`})
-})
+app.get("/health", (req, res) => {
+	res.json({ message: `Our ship is healthy captain!` });
+});
 
 // specific error handler - not found
-app.use(middlewares.notFound)
+app.use(middlewares.notFound);
 
 // general error handler for any type error that happens (e.g. if route found but there are some syntax error or logic error)
 // eslint-disable-next-line no-unused-vars
-app.use(middlewares.errorHandler)
+app.use(middlewares.errorHandler);
 
-const port = process.env.PORT || 1337
+const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
-  console.log(`Server running: Listening at https://localhost:${port}`)
-})
+	console.log(`Server running: Listening at https://localhost:${port}`);
+});
